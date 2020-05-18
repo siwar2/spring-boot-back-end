@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,7 +29,7 @@ public class Groupe implements Serializable {
 private Integer id_Groupe ;
 	@Column
 private  String nom  ;
-@ElementCollection(targetClass=Integer.class)
+@ManyToMany (fetch = FetchType.LAZY , mappedBy ="groupes")
 private  List<Etudiant> etudiants =  new ArrayList<Etudiant>();
 
  public Integer getId_Groupe() {
@@ -43,16 +44,20 @@ public String getNom() {
 public void setNom(String nom) {
 	this.nom = nom;
 }
-@ManyToMany 
-@JoinTable(name="JOIN_ETUDIANT_GROUPE",
-joinColumns={@JoinColumn(name="id_etudiant")},
-inverseJoinColumns= {@JoinColumn(name="id_Groupe")})
 public List<Etudiant> getEtudiants() {
 	return etudiants;
 }
 public void setEtudiants(List<Etudiant> etudiants) {
 	this.etudiants = etudiants;
 }
+public void addGroupe(Etudiant etudiant) {
+	etudiants.add(etudiant);
+	etudiant.getGroupes().add(this);
+}
 
+public void removeTag(Etudiant etudiant) {
+	etudiants.remove(etudiant);
+	etudiant.getGroupes().remove(this);
+}
 
 }

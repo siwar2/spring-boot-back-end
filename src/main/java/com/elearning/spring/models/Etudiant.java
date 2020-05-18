@@ -1,27 +1,26 @@
 package com.elearning.spring.models;
 
-import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import com.elearning.spring.models.User;
-import javax.persistence.JoinColumn;
-import com.elearning.spring.models.Groupe;
+
 @Entity
-@Table(name="Etudiant")
+@Table(name = "Etudiant")
 public class Etudiant extends User {
-	private String dernier_diplome ;
-	 
+	private String dernier_diplome;
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "etudiant_groupe", 
+		joinColumns = @JoinColumn(name = "id"), 
+		inverseJoinColumns = @JoinColumn(name = "groupe_id"))
+	private List<Groupe> groupes = new ArrayList<Groupe>();
+
 	public String getDernier_diplome() {
 		return dernier_diplome;
 	}
@@ -29,11 +28,22 @@ public class Etudiant extends User {
 	public void setDernier_diplome(String dernier_diplome) {
 		this.dernier_diplome = dernier_diplome;
 	}
-  
+
+	public List<Groupe> getGroupes() {
+		return this.groupes;
+	}
+
+	public void setGroupes(List<Groupe> groupes) {
+		this.groupes = groupes;
+	}
+	public void addGroupe(Groupe groupe) {
+		groupes.add(groupe);
+		groupe.getEtudiants().add(this);
+    }
  
-  
-   
-	
+    public void removeTag(Groupe groupe) {
+    	groupes.remove(groupe);
+    	groupe.getEtudiants().remove(this);
+    }
 
 }
-
