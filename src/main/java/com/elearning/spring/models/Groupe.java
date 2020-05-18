@@ -45,10 +45,8 @@ public void setNom(String nom) {
 }
 @ManyToMany 
 @JoinTable(name="JOIN_ETUDIANT_GROUPE",
-joinColumns={@JoinColumn(name="id")},
-inverseJoinColumns= {@JoinColumn(name="id_Groupe")}
-
-)
+joinColumns={@JoinColumn(name="id_etudiant")},
+inverseJoinColumns= {@JoinColumn(name="id_Groupe")})
 public List<Etudiant> getEtudiants() {
 	return etudiants;
 }

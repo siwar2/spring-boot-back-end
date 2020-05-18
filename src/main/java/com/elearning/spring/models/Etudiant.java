@@ -21,9 +21,7 @@ import com.elearning.spring.models.Groupe;
 @Table(name="Etudiant")
 public class Etudiant extends User {
 	private String dernier_diplome ;
-	 @ElementCollection(targetClass=Integer.class)
-	private  List<Groupe> Groupe  =  new ArrayList<Groupe>();
-
+	 
 	public String getDernier_diplome() {
 		return dernier_diplome;
 	}
@@ -31,21 +29,10 @@ public class Etudiant extends User {
 	public void setDernier_diplome(String dernier_diplome) {
 		this.dernier_diplome = dernier_diplome;
 	}
-   @ManyToMany
-   @JoinTable(name="JOIN_ETUDIANT_GROUPE",
-   joinColumns={@JoinColumn(name="id_Groupe")},
-   inverseJoinColumns= {@JoinColumn(name="id")}
+  
+ 
+  
    
-   )
-   public List<Groupe> getGroupe() {
-		return Groupe;
-	}
-
-	public void setGroupe(List<Groupe> Groupe) {
-		this.Groupe = Groupe;
-	}
-	
-	
 	
 
 }
