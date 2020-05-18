@@ -41,7 +41,7 @@ public class Etudiant extends User {
 		groupe.getEtudiants().add(this);
     }
  
-    public void removeTag(Groupe groupe) {
+    public void removeGroupe(Groupe groupe) {
     	groupes.remove(groupe);
     	groupe.getEtudiants().remove(this);
     }
