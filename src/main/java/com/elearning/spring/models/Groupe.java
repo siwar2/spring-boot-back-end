@@ -57,7 +57,7 @@ public class Groupe implements Serializable {
 		this.etudiants = etudiants;
 	}
 
-	public void addGroupe(Etudiant etudiant) {
+	public void addEtudiant(Etudiant etudiant) {
 		etudiants.add(etudiant);
 		etudiant.getGroupes().add(this);
 	}

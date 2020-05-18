@@ -1,18 +1,17 @@
 package com.elearning.spring.models;
 
-import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
@@ -27,9 +26,25 @@ public class Enseignant extends User {
 	@OneToMany(mappedBy="enseignant", fetch = FetchType.EAGER)
 	@Cascade(value = { CascadeType.DELETE, CascadeType.SAVE_UPDATE })
 	private Collection<Seance> seances;
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "enseignant_institution", joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "institutions_id"))
+	private List<Institution> institutions = new ArrayList<Institution>();
+
 	
 	
 	
+	public List<Institution> getInstitutions() {
+		return institutions;
+	}
+
+
+
+	public void setInstitutions(List<Institution> institutions) {
+		this.institutions = institutions;
+	}
+
+
+
 	public List<Seance> getSeances() {
 		//Collections.sort((List <Seance>)seances,new SeanceComparator());
 		return (List <Seance>)this.seances;

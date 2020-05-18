@@ -1,6 +1,8 @@
 package com.elearning.spring.models;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -29,6 +32,8 @@ public class Institution {
 	@OneToMany(mappedBy = "institution")
 	@Cascade(value = { CascadeType.DELETE, CascadeType.SAVE_UPDATE })
 	private Collection<Manager> managers;
+	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "groupes")
+	private List<Etudiant> etudiants = new ArrayList<Etudiant>();
 	public Long getId() {
 		return id;
 	}
@@ -71,4 +76,21 @@ public class Institution {
     	managers.remove(manager);
     	manager.setInstitution(null);
     }
+    public List<Etudiant> getEtudiants() {
+		return etudiants;
+	}
+
+	public void setEtudiants(List<Etudiant> etudiants) {
+		this.etudiants = etudiants;
+	}
+
+	public void addEtudiant(Etudiant etudiant) {
+		etudiants.add(etudiant);
+		etudiant.getInstitutions().add(this);
+	}
+
+	public void removeEtudiant(Etudiant etudiant) {
+		etudiants.remove(etudiant);
+		etudiant.getGroupes().remove(this);
+	}
 }

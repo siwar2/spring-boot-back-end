@@ -16,10 +16,11 @@ import com.elearning.spring.models.User;
 public class Etudiant extends User {
 	private String dernier_diplome;
 	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "etudiant_groupe", 
-		joinColumns = @JoinColumn(name = "id"), 
-		inverseJoinColumns = @JoinColumn(name = "groupe_id"))
+	@JoinTable(name = "etudiant_groupe", joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "groupe_id"))
 	private List<Groupe> groupes = new ArrayList<Groupe>();
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "etudiant_institution", joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "institutions_id"))
+	private List<Institution> institutions = new ArrayList<Institution>();
 
 	public String getDernier_diplome() {
 		return dernier_diplome;
@@ -36,14 +37,23 @@ public class Etudiant extends User {
 	public void setGroupes(List<Groupe> groupes) {
 		this.groupes = groupes;
 	}
+
 	public void addGroupe(Groupe groupe) {
 		groupes.add(groupe);
 		groupe.getEtudiants().add(this);
-    }
- 
-    public void removeGroupe(Groupe groupe) {
-    	groupes.remove(groupe);
-    	groupe.getEtudiants().remove(this);
-    }
+	}
+
+	public void removeGroupe(Groupe groupe) {
+		groupes.remove(groupe);
+		groupe.getEtudiants().remove(this);
+	}
+
+	public List<Institution> getInstitutions() {
+		return institutions;
+	}
+
+	public void setInstitutions(List<Institution> institutions) {
+		this.institutions = institutions;
+	}
 
 }
