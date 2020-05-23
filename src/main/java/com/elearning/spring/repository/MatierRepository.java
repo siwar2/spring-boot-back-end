@@ -14,7 +14,7 @@ import com.elearning.spring.models.Matiere;
 @RepositoryRestResource
 @CrossOrigin("*")
 
-public interface Matier extends JpaRepository<Matiere,Long>  {
+public interface MatierRepository extends JpaRepository<Matiere,Long>  {
 	
 	@RestResource(path="/bylibelle")
 	public List<Matiere> findBylibelle (@Param("mc")String libelle );

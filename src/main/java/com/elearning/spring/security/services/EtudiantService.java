@@ -4,7 +4,7 @@ import java.util.List;
 import com.elearning.spring.models.Etudiant;
 
 
-public interface EtudiantService {
+public interface EtudiantService  {
 List<Etudiant> getAll() ;
 void addEtudiant(Etudiant  e);
 }
