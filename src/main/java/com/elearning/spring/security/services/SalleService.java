@@ -8,5 +8,7 @@ import com.elearning.spring.models.Salle;
 public interface SalleService {
 	List<Salle> getAll() ;
 	void addSalle(Salle  s);
+	void deleteSalle(Salle s);
+	void updateSalle(Salle s);
 
 }

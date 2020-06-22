@@ -12,37 +12,38 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.elearning.spring.models.Salle;
+import com.elearning.spring.models.Seance;
 import com.elearning.spring.security.services.SalleService;
-
+import com.elearning.spring.security.services.SeanceService;
 
 @RestController
-@RequestMapping("api/test5")
-public class SalleRest {
+@RequestMapping("api/test6")
+public class SeanceRest {
 	@Autowired
-	private SalleService salleService ;
-	@GetMapping("/allSalle")
-	public List<Salle> getSalles (){
-		return salleService.getAll() ;
+	private SeanceService seanceService ;
+	@GetMapping("/allSeance")
+	public List<Seance> getSeances (){
+		return seanceService.getAll() ;
 		
 	}
 	
-	@PutMapping("/addSalle")
+	@PutMapping("/addSeance")
 	
-	public void createSalle (@RequestBody  Salle s ) {
-		this.salleService.addSalle(s);
-			System.out.println("Salle has been added succefully ");
+	public void createSalle (@RequestBody  Seance sc ) {
+		this.seanceService.addSeance(sc);
+			System.out.println("Seance has been added succefully ");
 	}
 	
-	@DeleteMapping("/deleteSalle")
+	@DeleteMapping("/deleteSeance")
 	
-	public void deleteSalle (@RequestBody  Salle s ) {
-		this.salleService.deleteSalle(s);
+	public void deleteSeance (@RequestBody  Seance sc ) {
+		this.seanceService.deleteSeance(sc);
 	}
 	
 	@PostMapping("/updateSalle")
 	
-	public void updateSalle (@RequestBody  Salle s ) {
-		this.salleService.addSalle(s);
+	public void updateSeance (@RequestBody  Seance sc ) {
+		this.seanceService.addSeance(sc);
 	}
 
 

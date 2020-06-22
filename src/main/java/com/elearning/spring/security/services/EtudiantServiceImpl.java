@@ -30,5 +30,17 @@ public class EtudiantServiceImpl  implements EtudiantService{
 			this.etudiantRepository.save(e);    
 			}
 
+		@Override
+		public void deleteEtudiant(Etudiant e) {
+			this.etudiantRepository.delete(e);
+			
+		}
+
+		@Override
+		public void updateEtudiant(Etudiant e) {
+			this.etudiantRepository.save(e);
+			
+		}
+
 
 }

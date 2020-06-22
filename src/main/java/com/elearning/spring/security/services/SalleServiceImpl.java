@@ -25,4 +25,19 @@ public class SalleServiceImpl  implements SalleService{
 		
 	}
 
+	@Override
+	public void deleteSalle(Salle s) {
+		this.salleRepository.delete(s);
+	}
+
+	@Override
+	public void updateSalle(Salle s) {
+		this.salleRepository.save(s);
+		
+	}
+
+
+
+	
+
 }

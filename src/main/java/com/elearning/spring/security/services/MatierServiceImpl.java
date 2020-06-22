@@ -25,4 +25,15 @@ public class MatierServiceImpl  implements  MatierService{
 		
 	}
 
+	@Override
+	public void deleteMatiere(Matiere m) {
+		this.matierRepository.delete(m);
+		
+	}
+
+	@Override
+	public void updateMatiere(Matiere m) {
+		this.matierRepository.save(m);
+	}
+
 }
