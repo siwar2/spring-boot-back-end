@@ -15,7 +15,7 @@ import com.elearning.spring.security.services.GroupeService;
 public class GroupeRest {
 	@Autowired
 	private GroupeService groupeService ;
-	@GetMapping("/allGroupes")
+	@GetMapping("/allGroupe")
 	public List<Groupe> getGroupes (){
 		return groupeService.getAll() ;
 		
