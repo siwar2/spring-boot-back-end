@@ -7,4 +7,5 @@ import com.elearning.spring.models.Enseignant;
 public interface EnseignantService {
 	List<Enseignant> getAll() ;
 	void addEnseignant(Enseignant  ens);
+	void deleteEnseignant(Enseignant g);
 }

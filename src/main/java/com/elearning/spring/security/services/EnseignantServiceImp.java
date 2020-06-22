@@ -23,4 +23,10 @@ public class EnseignantServiceImp  implements EnseignantService{
 		
 	}
 
+	@Override
+	public void deleteEnseignant(Enseignant ens) {
+		this.enseignantRepository.delete(ens);
+		
+	}
+
 }

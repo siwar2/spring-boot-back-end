@@ -12,32 +12,33 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.elearning.spring.models.Groupe;
-import com.elearning.spring.security.services.GroupeService;
+import com.elearning.spring.models.Manager;
+import com.elearning.spring.security.services.ManagerService;
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/api/test")
-public class GroupeRest {
+public class ManagerRest {
 	@Autowired
-	private GroupeService groupeService ;
-	@GetMapping("/allGroupes")
-	public List<Groupe> getGroupes (){
-		return groupeService.getAll() ;
+	private ManagerService managerService ;
+	@GetMapping("/allManagers")
+	public List<Manager> getManagers (){
+		return managerService.getAll() ;
 		
 	}
 	
-	@PutMapping("/addGroupe")
+	@PutMapping("/addManager")
 	
-	public void createGroupe (@RequestBody  Groupe g ) {
-		this.groupeService.addGroupe(g);
-		System.out.println("Groupe added");
+	public void createManager (@RequestBody  Manager g ) {
+		this.managerService.addManager(g);
+		System.out.println("Manager added");
 	}
-	@DeleteMapping("/deleteGroupe")
-	public void deleteGroupe(@RequestBody Groupe g) {
-		this.groupeService.deleteGroupe(g);
+	@DeleteMapping("/deleteManager")
+	public void deleteManager(@RequestBody Manager g) {
+		this.managerService.deleteManager(g);
 	}
-	@PostMapping("/updateGroupe")
-	public void updateGroupe(@RequestBody Groupe g) {
-		this.groupeService.addGroupe(g);
+	@PostMapping("/updateManager")
+	public void updateManager(@RequestBody Manager g) {
+		this.managerService.addManager(g);
 	}
+
 }

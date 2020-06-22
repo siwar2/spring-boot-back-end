@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.elearning.spring.models.Groupe;
-import com.elearning.spring.repository.EtudiantRepository;
 import com.elearning.spring.repository.GroupeRepository;
+
 @Service
 public class GroupeServiceImpl  implements GroupeService{
 	@Autowired
@@ -24,4 +24,9 @@ public class GroupeServiceImpl  implements GroupeService{
 		
 	}
 
+	@Override
+	public void deleteGroupe(Groupe g) {
+		this.groupeRepository.delete(g);
+		
+	}	
 }
