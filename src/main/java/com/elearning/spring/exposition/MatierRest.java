@@ -3,6 +3,7 @@ package com.elearning.spring.exposition;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,9 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.elearning.spring.models.Matiere;
 import com.elearning.spring.security.services.MatierService;
-
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@RequestMapping("api/test4")
+@RequestMapping("api/test")
 public class MatierRest {
 	
 	

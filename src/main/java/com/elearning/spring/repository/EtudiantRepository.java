@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.elearning.spring.models.Etudiant;
-@Repository
+@RepositoryRestResource
 @CrossOrigin("*")
 public interface EtudiantRepository  extends JpaRepository<Etudiant,Long> {
 	@RestResource(path="/byUsername")

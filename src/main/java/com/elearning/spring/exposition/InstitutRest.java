@@ -3,6 +3,7 @@ package com.elearning.spring.exposition;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,8 +17,8 @@ import com.elearning.spring.models.Matiere;
 import com.elearning.spring.security.services.InstitutService;
 import com.elearning.spring.security.services.MatierService;
 @RestController
-@RequestMapping("api/test3")
-
+@RequestMapping("api/test")
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class InstitutRest {
 	
 		
@@ -33,7 +34,7 @@ public class InstitutRest {
 				
 			}
 		
-			@PutMapping("/addMatier")
+			@PutMapping("/addInstitution")
 			
 			public void addInstitution (@RequestBody  Institution i) {
 				this.institutService.addInstitution(i);
