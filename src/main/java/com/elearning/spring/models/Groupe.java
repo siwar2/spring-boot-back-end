@@ -85,4 +85,12 @@ public class Groupe implements Serializable {
 		supportDeCours.getGroupes().remove(this);
 	}
 
+	public Groupe(String nom) {
+		super();
+		this.nom = nom;
+	}
+	public Groupe() {
+		super();
+	}
+
 }

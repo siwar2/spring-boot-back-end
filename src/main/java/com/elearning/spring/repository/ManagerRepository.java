@@ -7,12 +7,11 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RestResource;
 import org.springframework.stereotype.Repository;
 
-import com.elearning.spring.models.Groupe;
+import com.elearning.spring.models.Manager;
 
 @Repository
-public interface GroupeRepository  extends JpaRepository<Groupe,Long>  {
+public interface ManagerRepository extends JpaRepository<Manager,Long>  {
 	
 	@RestResource(path="/bynomM")
-	public List<Groupe> findBynom (@Param("mc")String nom );
-
+	public List<Manager> findByusername (@Param("mc")String username );
 }
