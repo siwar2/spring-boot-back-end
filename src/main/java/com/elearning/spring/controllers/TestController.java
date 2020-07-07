@@ -18,8 +18,13 @@ public class TestController {
 	
 	@GetMapping("/student")
 	@PreAuthorize("hasRole('ETUDIANT')")
-	public String userAccess() {
+	public String studentAccess() {
 		return "Student Content.";
+	}
+	@GetMapping("/teacher")
+	@PreAuthorize("hasRole('TEACHER')")
+	public String teacherAccess() {
+		return "Teacher Content.";
 	}
 
 	@GetMapping("/manager")

@@ -10,15 +10,16 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import com.elearning.spring.models.User;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "Etudiant")
 public class Etudiant extends User {
 	private String dernier_diplome;
-	@ManyToMany(fetch = FetchType.LAZY)
+	@ManyToMany()
 	@JoinTable(name = "etudiant_groupe", joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "groupe_id"))
 	private List<Groupe> groupes = new ArrayList<Groupe>();
-	@ManyToMany(fetch = FetchType.LAZY)
+	@ManyToMany()
 	@JoinTable(name = "etudiant_institution", joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "institutions_id"))
 	private List<Institution> institutions = new ArrayList<Institution>();
 
@@ -47,7 +48,7 @@ public class Etudiant extends User {
 		groupes.remove(groupe);
 		groupe.getEtudiants().remove(this);
 	}
-
+@JsonIgnore
 	public List<Institution> getInstitutions() {
 		return institutions;
 	}
