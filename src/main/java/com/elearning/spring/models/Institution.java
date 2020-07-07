@@ -32,7 +32,7 @@ public class Institution {
 	@OneToMany(mappedBy = "institution")
 	@Cascade(value = { CascadeType.DELETE, CascadeType.SAVE_UPDATE })
 	private Collection<Manager> managers;
-	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "groupes")
+	@ManyToMany( mappedBy = "institutions")
 	private List<Etudiant> etudiants = new ArrayList<Etudiant>();
 	public Long getId() {
 		return id;
