@@ -17,7 +17,7 @@ public class TestController {
 	}
 	
 	@GetMapping("/student")
-	@PreAuthorize("hasRole('ETUDIANT')")
+	@PreAuthorize("hasRole('STUDENT')")
 	public String studentAccess() {
 		return "Student Content.";
 	}
