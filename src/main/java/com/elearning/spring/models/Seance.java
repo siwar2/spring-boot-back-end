@@ -15,6 +15,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.elearning.spring.enumeration.JourSemaine;
 
 @Entity
 @Table(name="Seance")
@@ -34,7 +35,7 @@ public class Seance implements Serializable{
 	@Column
 	String heureFin;
 	@Column
-	Integer jour;
+	  private JourSemaine jour;
 	@Column
 	Type type;
 	@ManyToOne(fetch = FetchType.EAGER)
@@ -65,10 +66,10 @@ public class Seance implements Serializable{
 	public void setHeureFin(String heureFin) {
 		this.heureFin = heureFin;
 	}
-	public Integer getJour() {
+	public JourSemaine getJour() {
 		return jour;
 	}
-	public void setJour(Integer jour) {
+	public void setJour(JourSemaine jour) {
 		this.jour = jour;
 	}
 	public Type getType() {
