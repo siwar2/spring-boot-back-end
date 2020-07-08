@@ -42,6 +42,9 @@ public class Seance implements Serializable{
     @JoinColumn(name = "id_Sa")
     private Salle salle;
 	@ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_Gp")
+    private Groupe groupe;
+	@ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_Ens")
 	@JsonIgnore
     private Enseignant enseignant;

@@ -4,19 +4,18 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import com.elearning.spring.models.Etudiant;
-import java.util.Arrays;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+
 import java.util.List;
 
 @Entity
@@ -29,6 +28,7 @@ public class Groupe implements Serializable {
 	@Column
 	private String nom;
 	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "groupes")
+	@JsonIgnoreProperties("groupes")
 	private List<Etudiant> etudiants = new ArrayList<Etudiant>();
 	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "groupes")
 	private List<SupportDeCours> supportsDeCours = new ArrayList<SupportDeCours>();

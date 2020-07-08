@@ -11,6 +11,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import com.elearning.spring.models.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table(name = "Etudiant")
@@ -18,6 +20,7 @@ public class Etudiant extends User {
 	private String dernier_diplome;
 	@ManyToMany()
 	@JoinTable(name = "etudiant_groupe", joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "groupe_id"))
+	@JsonIgnoreProperties("etudiants")
 	private List<Groupe> groupes = new ArrayList<Groupe>();
 	@ManyToMany()
 	@JoinTable(name = "etudiant_institution", joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "institutions_id"))
