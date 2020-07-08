@@ -17,7 +17,7 @@ import com.elearning.spring.models.Salle;
 import com.elearning.spring.security.services.AdminService;
 import com.elearning.spring.security.services.EnseignantService;
 @RestController
-@RequestMapping("api/test1")
+@RequestMapping("api/test")
 public class AdminRest {
 
 	@Autowired
