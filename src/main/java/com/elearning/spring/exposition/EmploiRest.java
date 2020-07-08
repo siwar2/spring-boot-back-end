@@ -17,7 +17,7 @@ import com.elearning.spring.models.Etudiant;
 import com.elearning.spring.models.Seance;
 
 
-@RestController("/api/emploiEtudiant")
+@RestController("/api/test")
 
 @CrossOrigin
 public class EmploiRest {
