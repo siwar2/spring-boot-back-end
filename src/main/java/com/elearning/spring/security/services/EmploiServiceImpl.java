@@ -19,14 +19,13 @@ import com.elearning.spring.repository.SeanceRepository;
 public class EmploiServiceImpl implements EmploiService {
 	@Autowired
     private SupportDeCoursRepository repository;
-
     @Autowired
     private SeanceRepository seanceRepository;
     @Autowired
     private Mapper mapper;
 
 	@Override
-	public void afficher(Integer id_Groupe) {
+	public void afficher(Long id_Groupe) {
 		// TODO Auto-generated method stub
 		
 	}

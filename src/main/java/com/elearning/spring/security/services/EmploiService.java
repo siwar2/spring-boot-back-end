@@ -11,7 +11,7 @@ import com.elearning.spring.security.dto.SeanceDto;
 
 public interface EmploiService {
 	  
-    void afficher(Integer  id_Groupe);
+    void afficher(Long  id_Groupe);
     
     List<Seance> afficherEmploi(Groupe e);
     

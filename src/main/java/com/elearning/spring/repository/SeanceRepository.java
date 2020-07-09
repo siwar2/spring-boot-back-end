@@ -33,8 +33,8 @@ public interface SeanceRepository  extends JpaRepository<Seance,Long>{
 	    
 	    
 	    // JPQL
-	    @Query("select s from Seance s where s.Groupe.id=?1 order by s.jour, s.heureDebut")
-	    List<Seance> query3(Integer  id_Groupe);
+	    @Query("select s from Seance s where s.groupe.id=?1 order by s.jour, s.heureDebut")
+	    List<Seance> query3(Long  long1);
 	    
 	
 	

@@ -10,52 +10,54 @@ import java.util.Date;
 
 public class SeanceDto {
 
-    // {id: 1, start_date: "2019-04-15 09:00", end_date: "2019-04-15 12:00", text: "English lesson"},
-    private Integer id;
-    private Date start_date;
-    private Date end_date;
+    // {roomId: 1, startDate: "2019-04-15 09:00", endDate: "2019-04-15 12:00", text: "English lesson"},
+    private String roomId;
+    private String startDate;
+    private String endDate;
     private String text;
+    private String type;
+    private Integer jour;
 
     /**
-     * @return the id
+     * @return the roomId
      */
-    public Integer getId() {
-        return id;
+    public String getRoomId() {
+        return roomId;
     }
 
     /**
-     * @param id the id to set
+     * @param roomId the roomId to set
      */
-    public void setId(Integer id) {
-        this.id = id;
+    public void setRoomId(String roomId) {
+        this.roomId = roomId;
     }
 
     /**
-     * @return the start_date
+     * @return the startDate
      */
-    public Date getStart_date() {
-        return start_date;
+    public String getStartDate() {
+        return startDate;
     }
 
     /**
-     * @param start_date the start_date to set
+     * @param startDate the startDate to set
      */
-    public void setStart_date(Date start_date) {
-        this.start_date = start_date;
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
     }
 
     /**
-     * @return the end_date
+     * @return the endDate
      */
-    public Date getEnd_date() {
-        return end_date;
+    public String getEndDate() {
+        return endDate;
     }
 
     /**
-     * @param end_date the end_date to set
+     * @param endDate the endDate to set
      */
-    public void setEnd_date(Date end_date) {
-        this.end_date = end_date;
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
     }
 
     /**
@@ -70,5 +72,18 @@ public class SeanceDto {
      */
     public void setText(String text) {
         this.text = text;
+    }
+    /**
+     * @return the type
+     */
+    public String getType() {
+        return type;
+    }
+
+    /**
+     * @param type the type to set
+     */
+    public void setType(String type) {
+        this.type = type;
     }
 }

@@ -24,7 +24,7 @@ public class Groupe implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
-	private Integer id_Groupe;
+	private Long id_Groupe;
 	@Column
 	private String nom;
 	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "groupes")
@@ -33,11 +33,11 @@ public class Groupe implements Serializable {
 	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "groupes")
 	private List<SupportDeCours> supportsDeCours = new ArrayList<SupportDeCours>();
 
-	public Integer getId_Groupe() {
+	public Long getId_Groupe() {
 		return id_Groupe;
 	}
 
-	public void setId_Groupe(Integer id_Groupe) {
+	public void setId_Groupe(Long id_Groupe) {
 		this.id_Groupe = id_Groupe;
 	}
 

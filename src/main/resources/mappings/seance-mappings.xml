@@ -7,12 +7,24 @@
         <class-a>com.elearning.spring.models.Seance</class-a>
         <class-b>com.elearning.spring.security.dto.SeanceDto</class-b>
         <field>
-            <a>id</a>
-            <b>id</b>
+            <a>salle.reference</a>
+            <b>roomId</b>
         </field>
         <field>
             <a>matiere.libelle</a>
             <b>text</b>
+        </field>
+        <field>
+            <a>heureDebut</a>
+            <b>startDate</b>
+        </field>
+        <field>
+            <a>heureFin</a>
+            <b>endDate</b>
+        </field>
+        <field>
+            <a>type</a>
+            <b>type</b>
         </field>
     </mapping>
 </mappings>

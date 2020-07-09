@@ -102,5 +102,11 @@ public class Seance implements Serializable{
 	public void setMatiere(Matiere matiere) {
 		this.matiere = matiere;
 	}
+	public void setGroupe(Groupe groupe) {
+		this.groupe=groupe;
+	}
+	public Groupe getGroupe() {
+		return this.groupe;
+	}
 	
 }
