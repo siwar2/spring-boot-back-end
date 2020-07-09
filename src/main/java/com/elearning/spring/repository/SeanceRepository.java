@@ -9,12 +9,15 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.data.rest.core.annotation.RestResource;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.elearning.spring.models.Etudiant;
 import com.elearning.spring.models.Seance;
+import com.elearning.spring.security.dto.SeanceDto;
 
 @RepositoryRestResource
 @CrossOrigin("*")
+
 public interface SeanceRepository  extends JpaRepository<Seance,Long>{
 	@RestResource(path="/byType")
 	public List<Seance> findByType(@Param("mc")String type );
@@ -30,8 +33,8 @@ public interface SeanceRepository  extends JpaRepository<Seance,Long>{
 	    
 	    
 	    // JPQL
-	    @Query("select s from Seance s where s.enseignant.id=?1 order by s.jour, s.heureDebut")
-	    List<Seance> query3(Long id);
+	    @Query("select s from Seance s where s.Groupe.id=?1 order by s.jour, s.heureDebut")
+	    List<Seance> query3(Integer  id_Groupe);
 	    
 	
 	

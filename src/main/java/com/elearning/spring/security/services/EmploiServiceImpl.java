@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.elearning.spring.models.Etudiant;
+import com.elearning.spring.models.Groupe;
 import com.elearning.spring.models.Seance;
 import com.elearning.spring.security.dto.SeanceDto;
 import  com.elearning.spring.security.services.EmploiService;
@@ -25,20 +26,20 @@ public class EmploiServiceImpl implements EmploiService {
     private Mapper mapper;
 
 	@Override
-	public void afficher(Integer id_Etudiant) {
+	public void afficher(Integer id_Groupe) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public List<Seance> afficherEmploi(Etudiant e) {
+	public List<Seance> afficherEmploi(Groupe e) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<SeanceDto> afficherEmploiDto(Etudiant e) {
-		 List<Seance> l = seanceRepository.query3(e.getId());
+	public List<SeanceDto> afficherEmploiDto(Groupe e) {
+		 List<Seance> l = seanceRepository.query3(e.getId_Groupe());
 
 	        return l.stream().map(s -> mapper.map(s, SeanceDto.class)).collect(Collectors.toList());
 	}
