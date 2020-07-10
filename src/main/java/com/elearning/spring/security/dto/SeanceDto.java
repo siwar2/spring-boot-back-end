@@ -16,7 +16,7 @@ public class SeanceDto {
     private String endDate;
     private String text;
     private String type;
-    private Integer jour;
+    private Integer day;
 
     /**
      * @return the roomId
@@ -85,5 +85,18 @@ public class SeanceDto {
      */
     public void setType(String type) {
         this.type = type;
+    }
+    /**
+     * @return the day
+     */
+    public Integer getDay() {
+        return day;
+    }
+
+    /**
+     * @param day the day to set
+     */
+    public void setDay(Integer day) {
+        this.day = day;
     }
 }

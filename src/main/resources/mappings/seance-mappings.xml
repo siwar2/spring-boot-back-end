@@ -26,5 +26,9 @@
             <a>type</a>
             <b>type</b>
         </field>
+	<field>
+            <a>jour</a>
+            <b>day</b>
+        </field>
     </mapping>
 </mappings>
